@@ -14,13 +14,15 @@ const { title = "This is a Page" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Navbar />
-    <main>
-      <slot />
-    </main>
-    <footer>
-      <small>Copyright © <span id="copyrightYear"></span> Design</small>
-    </footer>
+    <div class="wrapper">
+      <Navbar />
+      <main>
+        <slot />
+      </main>
+      <footer>
+        <small>Copyright © <span id="copyrightYear"></span> Design</small>
+      </footer>
+    </div>
     <script>
       const yearElement = document.querySelector("#copyrightYear");
       if (yearElement) {

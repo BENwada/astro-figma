@@ -1,9 +1,14 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css?family=Inter:400,600");
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css?family=Inter:400,600");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
 
-* {
+html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -12,59 +17,41 @@
 img,
 picture,
 svg {
-  @apply max-w-full block;
+  @apply block max-w-full;
 }
 
-:root {
-  --bkg: 222 47.4% 11.2%;
-  --bkg-alt: 226 58.3% 18.8%;
-  --text: 226 100% 93.9%;
-  --text-alt: 226 22.1% 73.3%;
-  --muted: 230 39% 67.8%;
-  --white: 255 100% 100%;
-  --accent1: 241 76.8% 62.7%;
-  --accent2: 330 85.2% 60.4%;
-  --accent3: 0 90.6% 70.8%;
-  --gradient: linear-gradient(
-    94.55deg,
-    hsl(var(--accent2)) -4.6%,
-    hsl(var(--accent3)) 99.9%
+@theme {
+  --color-bkg: hsl(222 47.4% 11.2%);
+  --color-bkg-alt: hsl(226 58.3% 18.8%);
+  --color-text: hsl(226 100% 93.9%);
+  --color-text-alt: hsl(226 22.1% 73.3%);
+  --color-muted: hsl(230 39% 67.8%);
+  --color-white: hsl(255 100% 100%);
+  --color-accent1: hsl(241 76.8% 62.7%);
+  --color-accent2: hsl(330 85.2% 60.4%);
+  --color-accent3: hsl(0 90.6% 70.8%);
+  --color-gradient1: bg-gradient-to-br from-red-700 from-25% to-red-500 to-100%
   );
 }
 
-@media (min-width: 768px) {
-  html {
-    @apply text-[130%];
-  }
+html {
+  @apply md:text-[130%];
 }
 
 body {
-  @apply leading-[1.55] max-w-[2000px] mx-auto bg-[hsl(var(--bkg))] text-[hsl(var(--text))];
+  @apply bg-bkg text-text mx-auto max-w-[2000px] font-[Inter] leading-[1.55] font-[400];
 }
 
 .wrapper {
-  @apply overflow-hidden grid grid-rows-[auto_1fr_auto] min-h-screen;
-}
-
-main {
-  @apply grid;
-}
-
-.container {
-  @apply w-full max-w-[1500px] mx-auto;
-}
-
-.container-sm {
-  @apply w-full max-w-[1200px] mx-auto;
+  @apply grid min-h-screen grid-rows-1 overflow-hidden px-16 md:px-8;
 }
 
 .container-xs {
-  @apply w-full max-w-[900px] mx-auto;
+  @apply mx-auto w-full max-w-[900px];
 }
 
 .text-gradient {
-  @apply text-transparent bg-clip-text;
-  background: var(--gradient);
+  @apply bg-clip-text text-transparent bg-gradient1;
 }
 
 .h1 {
@@ -78,35 +65,35 @@ main {
 }
 
 .btn {
-  @apply no-underline cursor-pointer;
+  @apply cursor-pointer no-underline;
 }
 
 .btn--primary {
-  @apply bg-[hsl(var(--accent1))];
+  @apply bg-accent1;
 }
 
 .btn--secondary {
-  background: var(--gradient);
+  @apply bg-gradient1;
 }
 
 .btn--muted {
-  @apply bg-[hsl(var(--muted))];
+  @apply bg-muted;
 }
 
 .nav-container {
-  @apply flex justify-between items-center;
+  @apply flex items-center justify-between;
 }
 
 .nav-links {
-  @apply flex flex-col absolute text-center border-b-2 border-[hsl(var(--muted))] bg-[hsl(var(--bkg))] transition-transform transform -translate-y-full;
+  @apply flex -translate-y-full transform flex-col border-b-2 border-muted bg-bkg text-center transition-transform;
 }
 
 @media (min-width: 900px) {
   .nav-links {
-    @apply flex-row static  border-none;
+    @apply static flex-row border-none;
   }
 }
 
 footer {
-  @apply grid place-items-center bg-[hsl(var(--bkg))] text-[hsl(var(--text-alt))];
+  @apply grid place-items-center bg-bkg text-text-alt;
 }
