@@ -24,11 +24,11 @@ const navLinks = [
 ];
 ---
 
-<nav>
-  <div class="mx-auto flex w-full items-center justify-between py-5">
+<nav class="mb-8">
+  <div class="flex w-full items-center justify-between py-5">
     <a href="/" aria-label="logo">
       <h1 class="hidden">DESGN</h1>
-      <Icon name="logo" class="text-4xl" />
+      <Icon name="logo" class="text-5xl" />
     </a>
     <div class="mx-auto mr-0">
       <button
@@ -38,16 +38,16 @@ const navLinks = [
         id="menu-btn"
         aria-hidden="true"
       >
-        <Icon name="feather:menu" width={25} />
+        <Icon name="feather:menu" class="text-3xl" />
       </button>
     </div>
     <ul class="hidden gap-3 md:flex" role="navigation">
       {
         navLinks.map((link) => (
-          <li role="none" class="text-muted">
+          <li role="none" class="text-text">
             <a
               href={link.url}
-              class={`btn--${link.style} rounded-md px-4 py-2 text-sm ${link.style === "primary" ? "text-text" : ""}`}
+              class={`btn--${link.style} rounded-xs px-4 py-2 text-sm ${link.style === "primary" ? "text-text" : ""}`}
             >
               {link.name}
             </a>
@@ -56,15 +56,15 @@ const navLinks = [
       }
     </ul>
   </div>
-
-  <script>
-    const navBtn = document.querySelector("#menu-btn");
-    const navLinks = document.querySelector(".nav-links");
-    navBtn?.addEventListener("click", () => {
-      navBtn.setAttribute(
-        "aria-expanded",
-        navBtn.getAttribute("aria-expanded") === "false" ? "true" : "false",
-      );
-    });
-  </script>
 </nav>
+
+<script>
+  const navBtn = document.querySelector("#menu-btn");
+  const navLinks = document.querySelector(".nav-links");
+  navBtn?.addEventListener("click", () => {
+    navBtn.setAttribute(
+      "aria-expanded",
+      navBtn.getAttribute("aria-expanded") === "false" ? "true" : "false",
+    );
+  });
+</script>

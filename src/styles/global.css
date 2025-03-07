@@ -30,7 +30,7 @@ svg {
   --color-accent1: hsl(241 76.8% 62.7%);
   --color-accent2: hsl(330 85.2% 60.4%);
   --color-accent3: hsl(0 90.6% 70.8%);
-  --color-gradient1: bg-gradient-to-br from-red-700 from-25% to-red-500 to-100%
+  --color-gradient1: bg-liner-r from-[#F61C65] to-[#E36C6C]
   );
 }
 
@@ -39,29 +39,11 @@ html {
 }
 
 body {
-  @apply bg-bkg text-text mx-auto max-w-[2000px] font-[Inter] leading-[1.55] font-[400];
+  @apply bg-bkg mx-auto max-w-[2000px] font-[Inter] leading-[1.55] font-[400];
 }
 
 .wrapper {
-  @apply grid min-h-screen grid-rows-1 overflow-hidden px-16 md:px-8;
-}
-
-.container-xs {
-  @apply mx-auto w-full max-w-[900px];
-}
-
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient1;
-}
-
-.h1 {
-  @apply text-[2rem];
-}
-.h2 {
-  @apply text-[1.75rem];
-}
-.h3 {
-  @apply text-[1.5rem];
+  @apply overflow-hidden px-12 md:px-8;
 }
 
 .btn {
@@ -80,9 +62,6 @@ body {
   @apply bg-muted;
 }
 
-.nav-container {
-  @apply flex items-center justify-between;
-}
 
 .nav-links {
   @apply flex -translate-y-full transform flex-col border-b-2 border-muted bg-bkg text-center transition-transform;
@@ -94,6 +73,3 @@ body {
   }
 }
 
-footer {
-  @apply grid place-items-center bg-bkg text-text-alt;
-}

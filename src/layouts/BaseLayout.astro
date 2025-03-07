@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
 const { title = "This is a Page" } = Astro.props;
@@ -19,9 +20,7 @@ const { title = "This is a Page" } = Astro.props;
       <main>
         <slot />
       </main>
-      <footer>
-        <small>Copyright © <span id="copyrightYear"></span> Design</small>
-      </footer>
+      <Footer />
     </div>
     <script>
       const yearElement = document.querySelector("#copyrightYear");
